@@ -1,0 +1,8 @@
+Question 1: Suppose we put all the functions (user management, room management, bookings, etc.) into a single Service class. Is this a good practice? Explain.
+-> In a real software architecture, it is not recommended to put all the functions (user management, room management, bookings, etc.) into a single Service class.
+If everything is put into one Service class, it handles users, rooms, bookings, display, and so on... This makes the class too complex, difficult to maintain, test, or evolve.
+
+
+Question 2: In this design, the method setRoom(...) should not affect previous bookings. What is another possible approach? What is your recommendation? Explain and justify.
+-> Capture a copy (snapshot) of the room and the user at the moment of the booking (as in the provided implementation).
+This ensures that each Booking contains the exact data at the time of the transaction (room type, price, user balance, etc.).
